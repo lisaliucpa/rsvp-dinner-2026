@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>RSVP · 客户答谢晚宴 · July 25, 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Noto+Serif+SC:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --navy:   #0d1f3c;
+  --navy2:  #122040;
+  --gold:   #c9961a;
+  --gold2:  #e2b130;
+  --gold3:  #f5d060;
+  --cream:  #faf8f2;
+  --white:  #ffffff;
+  --gray:   #666666;
+  --lgray:  #cccccc;
+  --red:    #c0392b;
+}
+
+body {
+  background: linear-gradient(160deg, #08121f 0%, #0d1f3c 50%, #08121f 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 16px 60px;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+/* ── HEADER ── */
+.page-header {
+  text-align: center;
+  margin-bottom: 36px;
+  animation: fadeDown 0.7s ease both;
+}
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.diamond {
+  width: 12px; height: 12px;
+  background: var(--gold2);
+  transform: rotate(45deg);
+  margin: 0 auto 20px;
+  box-shadow: 0 0 16px rgba(226,177,48,0.7);
+}
+
+.event-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 12px;
+  letter-spacing: 0.35em;
+  color: rgba(245,208,96,0.7);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.event-title-cn {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--white);
+  letter-spacing: 0.06em;
+  margin-bottom: 4px;
+}
+
+.event-title-en {
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  font-style: italic;
+  color: var(--gold2);
+  letter-spacing: 0.1em;
+  margin-bottom: 18px;
+}
+
+.event-details {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 15px;
+  color: rgba(255,255,255,0.75);
+  letter-spacing: 0.12em;
+  line-height: 1.9;
+}
+
+.gold-rule {
+  width: 280px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold2), transparent);
+  margin: 20px auto 0;
+}
+
+/* ── CARD ── */
+.card {
+  background: var(--cream);
+  width: 100%;
+  max-width: 560px;
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(201,150,26,0.2);
+  animation: fadeUp 0.8s ease 0.2s both;
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.card-header {
+  background: var(--navy);
+  padding: 20px 32px;
+  text-align: center;
+  border-bottom: 2px solid var(--gold);
+}
+.card-header-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 13px;
+  letter-spacing: 0.3em;
+  color: var(--gold2);
+  text-transform: uppercase;
+}
+.card-header-cn {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 14px;
+  color: rgba(255,255,255,0.7);
+  margin-top: 4px;
+  letter-spacing: 0.08em;
+}
+
+.card-body {
+  padding: 32px 36px 36px;
+}
+
+/* ── FORM FIELDS ── */
+.field-group {
+  margin-bottom: 22px;
+}
+
+.field-label {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--navy);
+  margin-bottom: 7px;
+}
+.field-label .cn {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--gray);
+  letter-spacing: 0.06em;
+  margin-left: 6px;
+}
+.required { color: var(--gold); margin-left: 2px; }
+
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+select,
+textarea {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1px solid #ddd;
+  border-bottom: 2px solid var(--lgray);
+  background: var(--white);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px;
+  color: var(--navy);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  border-radius: 1px;
+  appearance: none;
+}
+input:focus, select:focus, textarea:focus {
+  border-color: var(--gold);
+  border-bottom-color: var(--gold2);
+  box-shadow: 0 2px 0 var(--gold2);
+}
+input::placeholder, textarea::placeholder { color: #bbb; font-style: italic; }
+
+select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23c9961a' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+  cursor: pointer;
+}
+
+textarea { resize: none; height: 80px; line-height: 1.6; }
+
+/* row layout */
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* radio group */
+.radio-group {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.radio-opt {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  padding: 9px 16px;
+  border: 1px solid #ddd;
+  border-bottom: 2px solid var(--lgray);
+  background: var(--white);
+  transition: all 0.18s;
+  flex: 1;
+  min-width: 100px;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  position: relative;
+  z-index: 1;
+}
+.radio-opt:hover { border-color: var(--gold); background: #fffdf5; }
+.radio-opt input[type="radio"] { display: none; }
+.radio-opt.selected {
+  border-color: var(--gold) !important;
+  border-bottom-color: var(--gold2) !important;
+  background: #fffbf0 !important;
+  box-shadow: 0 2px 0 var(--gold2) !important;
+}
+.radio-dot {
+  width: 14px; height: 14px;
+  border: 1.5px solid var(--lgray);
+  border-radius: 50%;
+  flex-shrink: 0;
+  position: relative;
+  transition: border-color 0.18s;
+}
+.radio-opt.selected .radio-dot {
+  border-color: var(--gold2);
+}
+.radio-opt.selected .radio-dot::after {
+  content: '';
+  position: absolute;
+  width: 7px; height: 7px;
+  background: var(--gold2);
+  border-radius: 50%;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+}
+.radio-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 15px;
+  color: var(--navy);
+}
+.radio-text .cn {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 12px;
+  color: var(--gray);
+  display: block;
+}
+
+/* divider */
+.field-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #ddd, transparent);
+  margin: 8px 0 24px;
+}
+
+/* ── SUBMIT BUTTON ── */
+.submit-btn {
+  width: 100%;
+  padding: 15px;
+  background: var(--navy);
+  color: var(--gold2);
+  border: none;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.22s;
+  margin-top: 8px;
+  position: relative;
+  overflow: hidden;
+}
+.submit-btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(226,177,48,0.12), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.4s;
+}
+.submit-btn:hover { background: #162d5a; }
+.submit-btn:hover::after { transform: translateX(100%); }
+.submit-btn:active { transform: scale(0.995); }
+.submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.submit-cn {
+  display: block;
+  font-family: 'Noto Serif SC', serif;
+  font-size: 12px;
+  font-weight: 300;
+  color: rgba(245,208,96,0.6);
+  letter-spacing: 0.12em;
+  margin-top: 3px;
+}
+
+/* ── SUCCESS STATE ── */
+.success-screen {
+  display: none;
+  text-align: center;
+  padding: 60px 36px;
+}
+.success-icon {
+  width: 60px; height: 60px;
+  border: 2px solid var(--gold2);
+  border-radius: 50%;
+  margin: 0 auto 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  color: var(--gold2);
+  animation: popIn 0.5s cubic-bezier(.22,.8,.36,1) both;
+}
+@keyframes popIn {
+  from { transform: scale(0.5); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+.success-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+.success-title-cn {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 18px;
+  color: var(--navy);
+  margin-bottom: 16px;
+}
+.success-msg {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px;
+  color: var(--gray);
+  line-height: 1.8;
+}
+.success-msg-cn {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 13px;
+  color: var(--gray);
+  line-height: 2;
+  margin-top: 8px;
+}
+.success-detail {
+  margin-top: 24px;
+  padding: 16px 20px;
+  background: #f5f0e8;
+  border-left: 3px solid var(--gold);
+  text-align: left;
+}
+.success-detail p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 15px;
+  color: var(--navy);
+  line-height: 1.9;
+}
+
+/* ── ERROR ── */
+.error-msg {
+  font-size: 12px;
+  color: var(--red);
+  margin-top: 5px;
+  display: none;
+  font-family: 'Cormorant Garamond', serif;
+  letter-spacing: 0.05em;
+}
+.field-group.has-error input,
+.field-group.has-error select,
+.field-group.has-error textarea {
+  border-bottom-color: var(--red);
+  box-shadow: 0 2px 0 var(--red);
+}
+.field-group.has-error .error-msg { display: block; }
+
+/* ── FOOTER NOTE ── */
+.page-footer {
+  margin-top: 28px;
+  text-align: center;
+  animation: fadeUp 0.8s ease 0.4s both;
+}
+.page-footer p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 13px;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 0.1em;
+  line-height: 1.8;
+}
+
+/* ── SETUP INSTRUCTIONS (shown in demo mode) ── */
+.setup-banner {
+  background: rgba(201,150,26,0.12);
+  border: 1px solid rgba(201,150,26,0.3);
+  padding: 16px 20px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+.setup-banner p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 14px;
+  color: var(--gold2);
+  line-height: 1.8;
+}
+.setup-banner strong { color: var(--gold3); }
+
+/* ── PRINT STYLES ── */
+@media print {
+  body { background: white; padding: 0; }
+  .page-header, .card-header, #setupBanner, #rsvpForm { display: none !important; }
+  .card { box-shadow: none; border: 1px solid #ddd; }
+  .success-screen { display: block !important; padding: 20px; }
+  #confirmCard { background: #1B2A4A !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  button[onclick="window.print()"] { display: none; }
+}
+
+/* ── IPHONE / MOBILE OPTIMIZATIONS ── */
+@media (max-width: 600px) {
+  body {
+    padding: 0;
+    background: var(--cream);
+    display: block;
+  }
+
+  /* Header — compact */
+  .page-header {
+    margin-bottom: 0;
+    padding: 20px 16px 16px;
+    background: var(--navy);
+  }
+  .diamond { margin-bottom: 12px; }
+  .event-label { font-size: 10px; color: rgba(245,208,96,0.7); }
+  .event-title-cn { font-size: 22px; color: white; }
+  .event-title-en { font-size: 12px; }
+  .event-details { font-size: 12px; color: rgba(255,255,255,0.75); line-height: 1.9; }
+  .gold-rule { width: 160px; }
+
+  /* Card — full width, no rounded corners, no side margins */
+  .card {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
+  }
+  .card-header { padding: 14px 16px; }
+  .card-header-text { font-size: 12px; letter-spacing: 0.15em; }
+  .card-header-cn { font-size: 12px; }
+  .card-body { padding: 16px 16px 24px; }
+
+  /* All field groups full width */
+  .field-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  /* Field labels */
+  .field-label { font-size: 10px; margin-bottom: 6px; }
+
+  /* Inputs — prevent iOS zoom (must be 16px+) */
+  input[type="text"],
+  input[type="tel"],
+  input[type="email"],
+  select,
+  textarea {
+    font-size: 16px !important;
+    padding: 14px 12px;
+    border-radius: 0;
+    width: 100%;
+  }
+  textarea { height: 90px; }
+
+  /* Radio buttons — full width stacked */
+  .radio-group { flex-direction: column; gap: 8px; }
+  .radio-opt {
+    width: 100%;
+    flex: none;
+    padding: 14px 16px;
+    min-height: 52px;
+    border-radius: 0;
+  }
+  .radio-text { font-size: 15px; }
+  .radio-text .cn { font-size: 12px; }
+  .radio-dot { width: 18px; height: 18px; }
+
+  /* Field divider */
+  .field-divider { margin: 12px 0 18px; }
+  .field-group { margin-bottom: 18px; }
+
+  /* Submit button */
+  .submit-btn {
+    padding: 18px;
+    font-size: 15px;
+    letter-spacing: 0.1em;
+    border-radius: 0;
+  }
+  .submit-cn { font-size: 11px; }
+
+  /* Success screen */
+  .success-screen { padding: 24px 16px 40px; }
+  .success-icon { width: 50px; height: 50px; font-size: 22px; }
+  .success-title { font-size: 20px; }
+  .success-title-cn { font-size: 16px; }
+  .success-msg { font-size: 14px; }
+  .success-msg-cn { font-size: 12px; }
+  #confirmCard { padding: 14px 12px; margin-top: 16px; }
+
+  /* Talent detail fields */
+  #fg-talentDetails .field-row { grid-template-columns: 1fr; }
+
+  /* Admin panel */
+  #setupBanner { padding: 12px 14px; border-radius: 0; }
+  #setupBanner > div:nth-child(2) { flex-direction: column; }
+  #adminSheetUrl { font-size: 14px; width: 100%; min-width: 0; }
+  #setupBanner button { width: 100%; padding: 12px; margin-top: 8px; font-size: 14px; }
+
+  /* Footer */
+  .page-footer { padding: 20px 16px; }
+  .page-footer p { font-size: 11px; line-height: 2; }
+}
+
+/* Prevent iOS double-tap zoom on buttons */
+button, .radio-opt, select {
+  touch-action: manipulation;
+}
+
+/* Remove iOS input styling */
+input, select, textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0;
+}
+
+/* Smooth scrolling for iPhone */
+html { -webkit-overflow-scrolling: touch; scroll-behavior: smooth; }
+</style>
+</head>
+<body>
+
+<!-- ── PAGE HEADER ── -->
+<div class="page-header">
+  <div class="diamond"></div>
+  <div class="event-label">David Fan &amp; Lisa Liu · Annual Event</div>
+  <div class="event-title-cn">感恩有你 · 客户答谢晚宴</div>
+  <div class="event-title-en">An Evening of Gratitude & Connection</div>
+  <div class="event-details">
+    Saturday, July 25, 2026 &nbsp;·&nbsp; 6:00 PM – 9:30 PM<br>
+    Golden Seafood Restaurant · Edison, NJ
+  </div>
+  <div class="gold-rule"></div>
+</div>
+
+<!-- ── REGISTRATION CARD ── -->
+<div class="card">
+
+  <div class="card-header">
+    <div class="card-header-text">✦ &nbsp; Event Registration &nbsp; ✦</div>
+    <div class="card-header-cn">活动报名登记 · RSVP Deadline: June 30, 2026</div>
+  </div>
+
+  <div class="card-body">
+
+    <!-- Admin URL Panel -->
+    <div id="setupBanner" style="
+      background:#fff8e6;
+      border:1px solid rgba(201,150,26,0.4);
+      border-left:4px solid #c9961a;
+      padding:16px 20px;
+      margin-bottom:24px;
+    ">
+      <div style="font-family:'Cormorant Garamond',serif; font-size:13px; font-weight:700; color:#7a5500; letter-spacing:0.1em; margin-bottom:8px;">
+        ⚙️ &nbsp; ADMIN SETUP — Paste your Google Apps Script URL below to activate live data collection
+      </div>
+      <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
+        <input
+          id="adminSheetUrl"
+          type="text"
+          placeholder="Paste your Apps Script URL here: https://script.google.com/macros/s/.../exec"
+          style="
+            flex:1;
+            min-width:200px;
+            padding:8px 12px;
+            border:1px solid #c9961a;
+            font-family:'Cormorant Garamond',serif;
+            font-size:14px;
+            color:#1B2A4A;
+            outline:none;
+          "
+        >
+        <button onclick="activateSheet()" style="
+          padding:8px 18px;
+          background:#1B2A4A;
+          color:#e2b130;
+          border:none;
+          font-family:'Cormorant Garamond',serif;
+          font-size:13px;
+          font-weight:600;
+          letter-spacing:0.1em;
+          cursor:pointer;
+          white-space:nowrap;
+        ">ACTIVATE ✓</button>
+      </div>
+      <div id="activateMsg" style="margin-top:8px; font-family:'Cormorant Garamond',serif; font-size:13px; color:#555; font-style:italic; display:none;"></div>
+      <div style="margin-top:8px; font-family:'Cormorant Garamond',serif; font-size:12px; color:#999; font-style:italic;">
+        Once activated, this panel hides automatically. Clients will not see it.
+      </div>
+    </div>
+
+    <!-- FORM -->
+    <form id="rsvpForm" novalidate>
+
+      <!-- Name row -->
+      <div class="field-row">
+        <div class="field-group" id="fg-firstName">
+          <label class="field-label">First Name <span class="cn">名字</span><span class="required">*</span></label>
+          <input type="text" id="firstName" placeholder="First name" autocomplete="given-name">
+          <div class="error-msg">Please enter your first name · 请填写名字</div>
+        </div>
+        <div class="field-group" id="fg-lastName">
+          <label class="field-label">Last Name <span class="cn">姓氏</span><span class="required">*</span></label>
+          <input type="text" id="lastName" placeholder="Last name" autocomplete="family-name">
+          <div class="error-msg">Please enter your last name · 请填写姓氏</div>
+        </div>
+      </div>
+
+      <!-- Chinese name -->
+      <div class="field-group">
+        <label class="field-label">Chinese Name <span class="cn">中文姓名（选填）</span></label>
+        <input type="text" id="chineseName" placeholder="中文姓名（可选）">
+      </div>
+
+      <!-- Phone -->
+      <div class="field-group" id="fg-phone">
+        <label class="field-label">Phone Number <span class="cn">联系电话</span><span class="required">*</span></label>
+        <input type="tel" id="phone" placeholder="(xxx) xxx-xxxx" autocomplete="tel">
+        <div class="error-msg">Please enter a valid phone number · 请填写有效电话</div>
+      </div>
+
+      <!-- Email -->
+      <div class="field-group" id="fg-email">
+        <label class="field-label">Email Address <span class="cn">电子邮件</span><span class="required">*</span></label>
+        <input type="email" id="email" placeholder="your@email.com" autocomplete="email" required>
+        <div class="error-msg">Please enter a valid email · 请填写有效邮箱</div>
+      </div>
+
+      <div class="field-divider"></div>
+
+      <!-- Number of guests -->
+      <div class="field-group" id="fg-guests">
+        <label class="field-label">Number of Guests Attending <span class="cn">出席人数（含本人）</span><span class="required">*</span></label>
+        <select id="guests">
+          <option value="">— Select · 请选择 —</option>
+          <option value="1">1 — Myself only · 仅本人出席</option>
+          <option value="2">2 — Myself + Spouse or Guest · 本人 + 配偶／同伴</option>
+        </select>
+        <div class="error-msg">Please select number of guests · 请选择出席人数</div>
+        <div style="margin-top:7px; font-family:'Cormorant Garamond',serif; font-size:13px; color:#888; font-style:italic; letter-spacing:0.04em;">
+          Each client is welcome to bring their spouse or one guest. · 每位客户可携配偶或一位同伴出席。
+        </div>
+      </div>
+
+      <!-- Dietary -->
+      <div class="field-group">
+        <label class="field-label">Dietary Restrictions <span class="cn">饮食限制（选填）</span></label>
+        <div class="radio-group" id="dietaryGroup">
+          <label class="radio-opt" data-val="None">
+            <input type="radio" name="dietary" value="None">
+            <div class="radio-dot"></div>
+            <div class="radio-text">None <span class="cn">无</span></div>
+          </label>
+          <label class="radio-opt" data-val="Vegetarian">
+            <input type="radio" name="dietary" value="Vegetarian">
+            <div class="radio-dot"></div>
+            <div class="radio-text">Vegetarian <span class="cn">素食</span></div>
+          </label>
+        </div>
+      </div>
+
+      <!-- Talent show interest -->
+      <div class="field-group">
+        <label class="field-label">Interested in Talent Show? <span class="cn">是否参加才艺表演？</span></label>
+        <div class="radio-group" id="talentGroup">
+          <label class="radio-opt" data-val="Yes">
+            <input type="radio" name="talent" value="Yes">
+            <div class="radio-dot"></div>
+            <div class="radio-text">Yes, I'd like to perform! <span class="cn">是，我想参加！</span></div>
+          </label>
+          <label class="radio-opt" data-val="No">
+            <input type="radio" name="talent" value="No">
+            <div class="radio-dot"></div>
+            <div class="radio-text">No, just attending <span class="cn">不，仅出席</span></div>
+          </label>
+        </div>
+      </div>
+
+      <!-- Talent show details — shown only when Yes is selected -->
+      <div class="field-group" id="fg-talentDetails" style="display:none;">
+        <label class="field-label">Performance Details <span class="cn">表演详情</span><span class="required">*</span></label>
+        <div class="field-row" style="margin-bottom:12px;">
+          <div class="field-group" id="fg-talentType" style="margin-bottom:0;">
+            <label class="field-label" style="font-size:10px;">Type of Performance <span class="cn">表演类型</span><span class="required">*</span></label>
+            <select id="talentType">
+              <option value="">— Select · 请选择 —</option>
+              <option value="Singing · 歌唱">Singing · 歌唱</option>
+              <option value="Instrumental · 乐器演奏">Instrumental · 乐器演奏</option>
+              <option value="Dance · 舞蹈">Dance · 舞蹈</option>
+              <option value="Poetry / Recitation · 朗诵">Poetry / Recitation · 朗诵</option>
+              <option value="Magic · 魔术">Magic · 魔术</option>
+              <option value="Other · 其他">Other · 其他</option>
+            </select>
+            <div class="error-msg" id="err-talentType">Please select a performance type · 请选择表演类型</div>
+          </div>
+          <div class="field-group" id="fg-talentDuration" style="margin-bottom:0;">
+            <label class="field-label" style="font-size:10px;">Estimated Duration <span class="cn">预计时长</span><span class="required">*</span></label>
+            <select id="talentDuration">
+              <option value="">— Select · 请选择 —</option>
+              <option value="Under 3 min · 3分钟以内">Under 3 min · 3分钟以内</option>
+              <option value="3–5 min · 3至5分钟">3–5 min · 3至5分钟</option>
+              <option value="5–8 min · 5至8分钟">5–8 min · 5至8分钟</option>
+            </select>
+            <div class="error-msg" id="err-talentDuration">Please select duration · 请选择时长</div>
+          </div>
+        </div>
+        <div class="field-group" id="fg-talentTitle" style="margin-bottom:0;">
+          <label class="field-label" style="font-size:10px;">Performance Title / Song Name <span class="cn">节目名称／曲目</span><span class="required">*</span></label>
+          <input type="text" id="talentTitle" placeholder="e.g. 月亮代表我的心 / Violin Solo / etc.">
+          <div class="error-msg">Please enter your performance title · 请填写节目名称</div>
+        </div>
+        <div style="margin-top:10px;">
+          <label class="field-label" style="font-size:10px;">Special Equipment Needed? <span class="cn">是否需要特殊设备？</span></label>
+          <input type="text" id="talentEquip" placeholder="e.g. microphone, music track, piano… · 如需麦克风、伴奏、钢琴等请注明">
+        </div>
+      </div>
+
+      <!-- Notes -->
+      <div class="field-group">
+        <label class="field-label">Additional Notes <span class="cn">备注（选填）</span></label>
+        <textarea id="notes" placeholder="Any questions or special requests · 如有疑问或特殊需求请注明"></textarea>
+        <div style="margin-top:7px; font-family:'Cormorant Garamond',serif; font-size:13px; color:#888; font-style:italic; letter-spacing:0.04em;">If performing in the Talent Show, please describe your act here: e.g. Singing, Instrumental, Dance, Magic, Talk Show, etc. · Recommended duration: 3–5 minutes. · 如参加才艺表演，请在此注明节目类型（如：歌唱、乐器、舞蹈、魔术、脱口秀等），建议时长3至5分钟。</div>
+      </div>
+
+      <!-- Submit -->
+      <button type="submit" class="submit-btn" id="submitBtn">
+        CONFIRM MY RSVP
+        <span class="submit-cn">确认报名参加</span>
+      </button>
+
+    </form>
+
+    <!-- SUCCESS SCREEN -->
+    <div class="success-screen" id="successScreen">
+      <div class="success-icon">✦</div>
+      <div class="success-title">Registration Confirmed!</div>
+      <div class="success-title-cn">报名成功！</div>
+      <div class="success-msg">
+        Thank you for registering. We look forward to celebrating with you!
+      </div>
+      <div class="success-msg-cn">
+        感谢您的报名，我们期待与您共度美好时光！
+      </div>
+      <div class="success-detail" id="successDetail"></div>
+
+      <!-- Confirmation summary card -->
+      <div id="confirmCard" style="
+        margin-top: 28px;
+        background: var(--navy);
+        border: 1px solid rgba(226,177,48,0.3);
+        padding: 24px 28px;
+        text-align: left;
+        border-radius: 2px;
+      ">
+        <div style="
+          font-family:'Cormorant Garamond',serif;
+          font-size:11px;
+          letter-spacing:0.3em;
+          color:var(--gold2);
+          text-transform:uppercase;
+          margin-bottom:16px;
+          text-align:center;
+        ">✦ &nbsp; Registration Summary · 报名确认 &nbsp; ✦</div>
+
+        <div id="confirmRows"></div>
+
+        <div style="
+          margin-top:20px;
+          padding-top:16px;
+          border-top:1px solid rgba(226,177,48,0.2);
+          font-family:'Noto Serif SC',serif;
+          font-size:12px;
+          color:rgba(255,255,255,0.5);
+          text-align:center;
+          line-height:2;
+        ">
+          如有任何问题，请联系我们 · Questions? Please contact us<br>
+          David Fan &nbsp;908-240-4029 &nbsp;·&nbsp; Lisa Liu &nbsp;908-938-5277
+        </div>
+      </div>
+
+      <!-- Print / Save button -->
+      <button onclick="window.print()" style="
+        margin-top:20px;
+        padding:12px 28px;
+        background:transparent;
+        border:1.5px solid var(--gold);
+        color:var(--gold);
+        font-family:'Cormorant Garamond',serif;
+        font-size:14px;
+        letter-spacing:0.2em;
+        cursor:pointer;
+        text-transform:uppercase;
+        transition:all 0.2s;
+      " onmouseover="this.style.background='var(--gold)';this.style.color='var(--navy)'"
+         onmouseout="this.style.background='transparent';this.style.color='var(--gold)'">
+        🖨️ &nbsp; Print / Save Confirmation &nbsp; 打印确认单
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<div class="page-footer">
+  <p>
+    Questions? Contact David Fan · 908-240-4029 &nbsp;|&nbsp; Lisa Liu · 908-938-5277<br>
+    princeton-wealth.com &nbsp;·&nbsp; RSVP Deadline: June 30, 2026
+  </p>
+</div>
+
+<script>
+// ── RADIO BUTTON LOGIC ──────────────────────────────
+function initRadioGroups() {
+  document.querySelectorAll('.radio-group').forEach(group => {
+    group.querySelectorAll('.radio-opt').forEach(opt => {
+
+      // Handle both click and touchend for mobile/embedded
+      ['click', 'touchend'].forEach(evtType => {
+        opt.addEventListener(evtType, function(e) {
+          if (evtType === 'touchend') e.preventDefault();
+
+          // Deselect all in group
+          group.querySelectorAll('.radio-opt').forEach(o => {
+            o.classList.remove('selected');
+            o.style.borderColor = '';
+            o.style.background = '';
+            o.style.boxShadow = '';
+          });
+
+          // Select this one
+          opt.classList.add('selected');
+          opt.style.borderColor = 'var(--gold)';
+          opt.style.background = '#fffbf0';
+          opt.style.boxShadow = '0 2px 0 var(--gold2)';
+
+          // Check the hidden radio input
+          const radio = opt.querySelector('input[type="radio"]');
+          if (radio) radio.checked = true;
+
+          // Show/hide talent details
+          if (group.id === 'talentGroup') {
+            const details = document.getElementById('fg-talentDetails');
+            if (opt.dataset.val === 'Yes') {
+              details.style.display = 'block';
+              details.style.opacity = '0';
+              details.style.transition = 'opacity 0.3s ease';
+              setTimeout(() => details.style.opacity = '1', 10);
+            } else {
+              details.style.display = 'none';
+              ['fg-talentType','fg-talentDuration','fg-talentTitle'].forEach(id => {
+                document.getElementById(id)?.classList.remove('has-error');
+              });
+            }
+          }
+        }, { passive: false });
+      });
+    });
+  });
+}
+
+// Init on DOM ready and after any dynamic load (for Google Sites iframe)
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initRadioGroups);
+} else {
+  initRadioGroups();
+}
+window.addEventListener('load', initRadioGroups);
+
+// ── VALIDATION ──────────────────────────────────────
+function validate() {
+  let valid = true;
+
+  const fields = [
+    { id: 'firstName',  fg: 'fg-firstName', check: v => v.trim().length > 0 },
+    { id: 'lastName',   fg: 'fg-lastName',  check: v => v.trim().length > 0 },
+    { id: 'phone',      fg: 'fg-phone',     check: v => /[\d\s\-\(\)]{7,}/.test(v.trim()) },
+    { id: 'email',      fg: 'fg-email',     check: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) },
+    { id: 'guests',     fg: 'fg-guests',    check: v => v !== '' },
+  ];
+
+  fields.forEach(f => {
+    const el = document.getElementById(f.id);
+    const fg = document.getElementById(f.fg);
+    const val = el.value;
+    if (!f.check(val)) {
+      fg.classList.add('has-error');
+      valid = false;
+    } else {
+      fg.classList.remove('has-error');
+    }
+  });
+
+  // Validate talent details if Yes selected
+  const talentYes = document.querySelector('input[name="talent"]:checked')?.value === 'Yes';
+  if (talentYes) {
+    const talentFields = [
+      { id: 'talentType',     fg: 'fg-talentType',     check: v => v !== '' },
+      { id: 'talentDuration', fg: 'fg-talentDuration', check: v => v !== '' },
+      { id: 'talentTitle',    fg: 'fg-talentTitle',    check: v => v.trim().length > 0 },
+    ];
+    talentFields.forEach(f => {
+      const el = document.getElementById(f.id);
+      const fg = document.getElementById(f.fg);
+      if (!el || !fg) return;
+      if (!f.check(el.value)) {
+        fg.classList.add('has-error');
+        valid = false;
+      } else {
+        fg.classList.remove('has-error');
+      }
+    });
+  }
+
+  return valid;
+}
+
+// ── FORM SUBMISSION ──────────────────────────────────
+// Load saved URL from localStorage if available
+let SHEET_URL = localStorage.getItem('rsvp_sheet_url') || '';
+if (SHEET_URL) {
+  document.getElementById('adminSheetUrl').value = SHEET_URL;
+  document.getElementById('setupBanner').style.display = 'none';
+}
+
+function activateSheet() {
+  const input = document.getElementById('adminSheetUrl').value.trim();
+  const msg   = document.getElementById('activateMsg');
+  if (!input.startsWith('https://script.google.com')) {
+    msg.style.display = 'block';
+    msg.style.color   = '#c0392b';
+    msg.textContent   = '❌ URL must start with https://script.google.com — please check and try again.';
+    return;
+  }
+  SHEET_URL = input;
+  localStorage.setItem('rsvp_sheet_url', SHEET_URL);
+  msg.style.display = 'block';
+  msg.style.color   = '#1a7a4a';
+  msg.textContent   = '✓ Activated! This panel will now hide for all visitors. You can close it.';
+  setTimeout(() => {
+    document.getElementById('setupBanner').style.display = 'none';
+  }, 2000);
+}
+
+document.getElementById('rsvpForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  if (!validate()) return;
+
+  const btn = document.getElementById('submitBtn');
+  btn.disabled = true;
+  btn.textContent = 'Submitting…';
+
+  const data = {
+    timestamp:    new Date().toLocaleString('en-US', { timeZone: 'America/New_York' }),
+    firstName:    document.getElementById('firstName').value.trim(),
+    lastName:     document.getElementById('lastName').value.trim(),
+    chineseName:  document.getElementById('chineseName').value.trim(),
+    phone:        document.getElementById('phone').value.trim(),
+    email:        document.getElementById('email').value.trim(),
+    guests:       document.getElementById('guests').value,
+    dietary:      document.querySelector('input[name="dietary"]:checked')?.value || 'Not specified',
+    talentShow:   document.querySelector('input[name="talent"]:checked')?.value || 'Not specified',
+    talentType:   document.getElementById('talentType')?.value || '',
+    talentTitle:  document.getElementById('talentTitle')?.value.trim() || '',
+    talentDuration: document.getElementById('talentDuration')?.value || '',
+    talentEquip:  document.getElementById('talentEquip')?.value.trim() || '',
+    notes:        document.getElementById('notes').value.trim(),
+  };
+
+  // If Google Sheets URL is configured, submit there
+  if (SHEET_URL) {
+    try {
+      await fetch(SHEET_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+    } catch(err) {
+      console.log('Submission note:', err);
+    }
+  }
+
+  // Show success
+  showSuccess(data);
+});
+
+function confirmRow(label, labelCn, value, highlight) {
+  return `<div style="
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    padding:9px 0;
+    border-bottom:1px solid rgba(255,255,255,0.07);
+    gap:12px;
+  ">
+    <div style="font-family:'Cormorant Garamond',serif; font-size:13px; color:rgba(245,208,96,0.7); letter-spacing:0.06em; white-space:nowrap;">
+      ${label}<br><span style="font-family:'Noto Serif SC',serif; font-size:11px; color:rgba(255,255,255,0.35);">${labelCn}</span>
+    </div>
+    <div style="font-family:'Cormorant Garamond',serif; font-size:${highlight ? '15px' : '14px'}; color:${highlight ? '#ffffff' : 'rgba(255,255,255,0.8)'}; font-weight:${highlight ? '600' : '400'}; text-align:right; line-height:1.5;">
+      ${value}
+    </div>
+  </div>`;
+}
+
+function showSuccess(data) {
+  document.getElementById('rsvpForm').style.display = 'none';
+  const banner = document.getElementById('setupBanner');
+  if (banner) banner.style.display = 'none';
+  const s = document.getElementById('successScreen');
+  s.style.display = 'block';
+  s.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+  // Build confirmation rows
+  let rows = '';
+  rows += confirmRow('Guest Name', '姓名', `${data.firstName} ${data.lastName}${data.chineseName ? ' &nbsp;·&nbsp; ' + data.chineseName : ''}`, true);
+  rows += confirmRow('Phone', '联系电话', data.phone, false);
+  if (data.email) rows += confirmRow('Email', '电子邮件', data.email, false);
+  rows += confirmRow('Attending', '出席人数', data.guests === '1' ? '1 person · 仅本人' : '2 people · 本人 + 配偶／同伴', true);
+  rows += confirmRow('Dietary', '饮食限制', data.dietary, false);
+  rows += confirmRow('Event Date', '活动日期', 'Saturday, July 25, 2026 &nbsp;·&nbsp; 星期六', true);
+  rows += confirmRow('Time', '时间', '6:00 PM – 9:30 PM', false);
+  rows += confirmRow('Venue', '地点', 'Golden Seafood Restaurant<br>518 Old Post Rd, Suite 3, Edison, NJ', false);
+  rows += confirmRow('RSVP Deadline', '报名截止', 'June 30, 2026 · 六月三十日', false);
+
+  if (data.talentShow === 'Yes') {
+    const talentDetail = [
+      data.talentType || '—',
+      data.talentTitle ? `"${data.talentTitle}"` : '',
+      data.talentDuration || '',
+      data.talentEquip ? `Equipment: ${data.talentEquip}` : ''
+    ].filter(Boolean).join('<br>');
+    rows += confirmRow('🎤 Performing', '参加才艺表演', talentDetail, true);
+  } else {
+    rows += confirmRow('Talent Show', '才艺表演', 'Not participating · 不参加', false);
+  }
+
+  if (data.notes) rows += confirmRow('Notes', '备注', data.notes, false);
+
+  document.getElementById('confirmRows').innerHTML = rows;
+  document.getElementById('successDetail').innerHTML = '';
+}
+</script>
+
+<!-- ════════════════════════════════════════════════════════
+     SETUP INSTRUCTIONS — HOW TO CONNECT GOOGLE SHEETS
+     ════════════════════════════════════════════════════════
+
+STEP 1 — Create a Google Sheet
+  • Go to sheets.google.com → New spreadsheet
+  • Name it: "Client Dinner RSVP 2026"
+  • Row 1 headers (A–J):
+    Timestamp | First Name | Last Name | Chinese Name | Phone | Email | Guests | Dietary | Talent Show | Notes
+
+STEP 2 — Create Apps Script
+  • In your Google Sheet: Extensions → Apps Script
+  • Delete all code, paste this:
+
+  function doPost(e) {
+    var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+    var data = JSON.parse(e.postData.contents);
+    sheet.appendRow([
+      data.timestamp, data.firstName, data.lastName, data.chineseName,
+      data.phone, data.email, data.guests, data.dietary, data.talentShow, data.notes
+    ]);
+    return ContentService.createTextOutput('OK');
+  }
+
+STEP 3 — Deploy
+  • Click Deploy → New deployment → Web app
+  • Execute as: Me
+  • Who has access: Anyone
+  • Click Deploy → Copy the Web App URL
+
+STEP 4 — Paste URL into this file
+  • Find: const SHEET_URL = 'https://script.google.com/macros/s/AKfycbwv_y2jBeVqhppTHSO-xE9jSByHEy9TkaQNJc8Inx5XWQa7FlvHxYMGEDafq3wzdAg/exec';
+  • Replace with: const SHEET_URL = 'https://script.google.com/macros/s/YOUR_ID/exec';
+  • Save the file
+
+STEP 5 — Host the form
+  • Upload this HTML file to your website (Wix, Squarespace, etc.)
+  • OR share via Google Sites (free)
+  • Generate a QR code at qr-code-generator.com pointing to your form URL
+  • Add QR code to your flyer!
+
+Every submission instantly appears as a new row in your Google Sheet ✓
+════════════════════════════════════════════════════════ -->
+
+</body>
+</html>
