@@ -675,6 +675,36 @@ html { -webkit-overflow-scrolling: touch; scroll-behavior: smooth; }
         </div>
       </div>
 
+      <!-- Guest 2 Name — shown only when 2 people selected -->
+      <div id="fg-guest2" style="display:none;">
+        <div style="
+          margin: 4px 0 14px;
+          padding: 12px 16px;
+          background: #fff8e6;
+          border-left: 3px solid var(--gold);
+          font-family:'Cormorant Garamond',serif;
+          font-size:13px;
+          color:#7a5500;
+          font-style:italic;
+        ">✦ &nbsp; Please provide the name of your spouse or guest · 请填写配偶或同伴姓名</div>
+        <div class="field-row" style="margin-bottom:0;">
+          <div class="field-group" id="fg-guest2First" style="margin-bottom:14px;">
+            <label class="field-label">Guest First Name <span class="cn">同伴名字</span><span class="required">*</span></label>
+            <input type="text" id="guest2First" placeholder="First name · 名字" autocomplete="off">
+            <div class="error-msg">Please enter guest's first name · 请填写同伴名字</div>
+          </div>
+          <div class="field-group" id="fg-guest2Last" style="margin-bottom:14px;">
+            <label class="field-label">Guest Last Name <span class="cn">同伴姓氏</span><span class="required">*</span></label>
+            <input type="text" id="guest2Last" placeholder="Last name · 姓氏" autocomplete="off">
+            <div class="error-msg">Please enter guest's last name · 请填写同伴姓氏</div>
+          </div>
+        </div>
+        <div class="field-group" style="margin-bottom:14px;">
+          <label class="field-label">Guest Chinese Name <span class="cn">同伴中文姓名（选填）</span></label>
+          <input type="text" id="guest2Chinese" placeholder="中文姓名（可选）" autocomplete="off">
+        </div>
+      </div>
+
       <!-- Dietary -->
       <div class="field-group">
         <label class="field-label">Dietary Restrictions <span class="cn">饮食限制（选填）</span></label>
@@ -892,13 +922,35 @@ function initRadioGroups() {
   });
 }
 
+// Show/hide guest 2 name fields based on guest count selection
+function initGuestToggle() {
+  const guestsSelect = document.getElementById('guests');
+  if (!guestsSelect) return;
+  guestsSelect.addEventListener('change', function() {
+    const fg = document.getElementById('fg-guest2');
+    if (this.value === '2') {
+      fg.style.display = 'block';
+      fg.style.opacity = '0';
+      fg.style.transition = 'opacity 0.3s ease';
+      setTimeout(() => fg.style.opacity = '1', 10);
+    } else {
+      fg.style.display = 'none';
+      // Clear errors
+      ['fg-guest2First','fg-guest2Last'].forEach(id => {
+        document.getElementById(id)?.classList.remove('has-error');
+      });
+    }
+  });
+}
+
 // Init on DOM ready and after any dynamic load (for Google Sites iframe)
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initRadioGroups);
+  document.addEventListener('DOMContentLoaded', () => { initRadioGroups(); initGuestToggle(); });
 } else {
   initRadioGroups();
+  initGuestToggle();
 }
-window.addEventListener('load', initRadioGroups);
+window.addEventListener('load', () => { initRadioGroups(); initGuestToggle(); });
 
 // ── VALIDATION ──────────────────────────────────────
 function validate() {
@@ -911,6 +963,25 @@ function validate() {
     { id: 'email',      fg: 'fg-email',     check: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) },
     { id: 'guests',     fg: 'fg-guests',    check: v => v !== '' },
   ];
+
+  // Validate guest 2 name if 2 people selected
+  if (document.getElementById('guests').value === '2') {
+    const guest2Fields = [
+      { id: 'guest2First', fg: 'fg-guest2First', check: v => v.trim().length > 0 },
+      { id: 'guest2Last',  fg: 'fg-guest2Last',  check: v => v.trim().length > 0 },
+    ];
+    guest2Fields.forEach(f => {
+      const el = document.getElementById(f.id);
+      const fg = document.getElementById(f.fg);
+      if (!el || !fg) return;
+      if (!f.check(el.value)) {
+        fg.classList.add('has-error');
+        valid = false;
+      } else {
+        fg.classList.remove('has-error');
+      }
+    });
+  }
 
   fields.forEach(f => {
     const el = document.getElementById(f.id);
@@ -991,6 +1062,9 @@ document.getElementById('rsvpForm').addEventListener('submit', async function(e)
     phone:        document.getElementById('phone').value.trim(),
     email:        document.getElementById('email').value.trim(),
     guests:       document.getElementById('guests').value,
+    guest2First:  document.getElementById('guest2First')?.value.trim() || '',
+    guest2Last:   document.getElementById('guest2Last')?.value.trim() || '',
+    guest2Chinese:document.getElementById('guest2Chinese')?.value.trim() || '',
     dietary:      document.querySelector('input[name="dietary"]:checked')?.value || 'Not specified',
     talentShow:   document.querySelector('input[name="talent"]:checked')?.value || 'Not specified',
     talentType:   document.getElementById('talentType')?.value || '',
@@ -1050,6 +1124,9 @@ function showSuccess(data) {
   rows += confirmRow('Phone', '联系电话', data.phone, false);
   if (data.email) rows += confirmRow('Email', '电子邮件', data.email, false);
   rows += confirmRow('Attending', '出席人数', data.guests === '1' ? '1 person · 仅本人' : '2 people · 本人 + 配偶／同伴', true);
+  if (data.guests === '2' && data.guest2First) {
+    rows += confirmRow('Guest Name', '同伴姓名', `${data.guest2First} ${data.guest2Last}${data.guest2Chinese ? ' · ' + data.guest2Chinese : ''}`, false);
+  }
   rows += confirmRow('Dietary', '饮食限制', data.dietary, false);
   rows += confirmRow('Event Date', '活动日期', 'Saturday, July 25, 2026 &nbsp;·&nbsp; 星期六', true);
   rows += confirmRow('Time', '时间', '6:00 PM – 9:30 PM', false);
@@ -1083,7 +1160,7 @@ STEP 1 — Create a Google Sheet
   • Go to sheets.google.com → New spreadsheet
   • Name it: "Client Dinner RSVP 2026"
   • Row 1 headers (A–J):
-    Timestamp | First Name | Last Name | Chinese Name | Phone | Email | Guests | Dietary | Talent Show | Notes
+    Timestamp | First Name | Last Name | Chinese Name | Phone | Email | Guests | Guest2 First | Guest2 Last | Guest2 Chinese | Dietary | Talent Show | Notes
 
 STEP 2 — Create Apps Script
   • In your Google Sheet: Extensions → Apps Script
@@ -1094,7 +1171,7 @@ STEP 2 — Create Apps Script
     var data = JSON.parse(e.postData.contents);
     sheet.appendRow([
       data.timestamp, data.firstName, data.lastName, data.chineseName,
-      data.phone, data.email, data.guests, data.dietary, data.talentShow, data.notes
+      data.phone, data.email, data.guests, data.guest2First, data.guest2Last, data.guest2Chinese, data.dietary, data.talentShow, data.notes
     ]);
     return ContentService.createTextOutput('OK');
   }
