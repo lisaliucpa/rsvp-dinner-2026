@@ -1076,20 +1076,19 @@ document.getElementById('rsvpForm').addEventListener('submit', async function(e)
 
   // If Google Sheets URL is configured, submit there
   if (SHEET_URL) {
-    try {
-      await fetch(SHEET_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-      });
-    } catch(err) {
-      console.log('Submission note:', err);
-    }
+  try {
+    const response = await fetch(SHEET_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain' },  // ← changed
+      body: JSON.stringify(data)
+    });
+    console.log('Sheet submission status:', response.status);
+  } catch(err) {
+    console.log('Sheet submission error:', err);
   }
-
-  // Show success
-  showSuccess(data);
+}
+// Show success
+showSuccess(data);
 });
 
 function confirmRow(label, labelCn, value, highlight) {
