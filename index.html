@@ -1020,9 +1020,17 @@ function validate() {
 }
 
 // ── FORM SUBMISSION ──────────────────────────────────
-// Load saved URL from localStorage if available
+// Paste your deployed Apps Script Web App URL between the quotes below.
 let SHEET_URL = 'https://script.google.com/macros/s/AKfycbwf530VCU3dpfrrMWfI1cOVa27aNOQ6w_FMZnqolevrsFjccB-ETwte2TCjLDZUbRs/exec';
-document.getElementById('setupBanner').style.display = 'none';
+
+// A URL saved through the admin panel overrides the hardcoded one above.
+const savedUrl = localStorage.getItem('rsvp_sheet_url');
+if (savedUrl) SHEET_URL = savedUrl;
+
+// Hide the admin setup banner once a URL is in place.
+if (SHEET_URL) {
+  const sb = document.getElementById('setupBanner');
+  if (sb) sb.style.display = 'none';
 }
 
 function activateSheet() {
@@ -1156,8 +1164,8 @@ function showSuccess(data) {
 STEP 1 — Create a Google Sheet
   • Go to sheets.google.com → New spreadsheet
   • Name it: "Client Dinner RSVP 2026"
-  • Row 1 headers (A–J):
-    Timestamp | First Name | Last Name | Chinese Name | Phone | Email | Guests | Guest2 First | Guest2 Last | Guest2 Chinese | Dietary | Talent Show | Notes
+  • Row 1 headers (A–Q, 17 columns):
+    Timestamp | First Name | Last Name | Chinese Name | Phone | Email | Guests | Guest2 First | Guest2 Last | Guest2 Chinese | Dietary | Talent Show | Talent Type | Talent Title | Talent Duration | Talent Equipment | Notes
 
 STEP 2 — Create Apps Script
   • In your Google Sheet: Extensions → Apps Script
@@ -1165,12 +1173,17 @@ STEP 2 — Create Apps Script
 
   function doPost(e) {
     var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
-    var data = JSON.parse(e.postData.contents);
+    var d = JSON.parse(e.postData.contents);
     sheet.appendRow([
-      data.timestamp, data.firstName, data.lastName, data.chineseName,
-      data.phone, data.email, data.guests, data.guest2First, data.guest2Last, data.guest2Chinese, data.dietary, data.talentShow, data.notes
+      d.timestamp, d.firstName, d.lastName, d.chineseName,
+      d.phone, d.email, d.guests,
+      d.guest2First, d.guest2Last, d.guest2Chinese,
+      d.dietary, d.talentShow,
+      d.talentType, d.talentTitle, d.talentDuration, d.talentEquip,
+      d.notes
     ]);
-    return ContentService.createTextOutput('OK');
+    return ContentService.createTextOutput(JSON.stringify({result:'ok'}))
+      .setMimeType(ContentService.MimeType.JSON);
   }
 
 STEP 3 — Deploy
@@ -1180,8 +1193,8 @@ STEP 3 — Deploy
   • Click Deploy → Copy the Web App URL
 
 STEP 4 — Paste URL into this file
-  • Find: const SHEET_URL = 'https://script.google.com/macros/s/AKfycbwv_y2jBeVqhppTHSO-xE9jSByHEy9TkaQNJc8Inx5XWQa7FlvHxYMGEDafq3wzdAg/exec';
-  • Replace with: const SHEET_URL = 'https://script.google.com/macros/s/YOUR_ID/exec';
+  • Find the line:  let SHEET_URL = 'https://script.google.com/macros/s/.../exec';
+  • Replace the URL inside the quotes with YOUR deployed Web App URL
   • Save the file
 
 STEP 5 — Host the form
