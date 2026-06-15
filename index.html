@@ -1023,15 +1023,9 @@ function validate() {
 // Paste your deployed Apps Script Web App URL between the quotes below.
 let SHEET_URL = 'https://script.google.com/macros/s/AKfycbz_iuXyt9nFE6xNElUps-xavelZVOt6cBVK-WsqzAlN8-u8V8nlGyDqXO1-vF3IAg/exec';
 
-// A URL saved through the admin panel overrides the hardcoded one above.
-const savedUrl = localStorage.getItem('rsvp_sheet_url');
-if (savedUrl) SHEET_URL = savedUrl;
-
-// Hide the admin setup banner once a URL is in place.
-if (SHEET_URL) {
-  const sb = document.getElementById('setupBanner');
-  if (sb) sb.style.display = 'none';
-}
+// Hide the admin setup banner — the URL is hardcoded above.
+const sb = document.getElementById('setupBanner');
+if (sb) sb.style.display = 'none';
 
 function activateSheet() {
   const input = document.getElementById('adminSheetUrl').value.trim();
